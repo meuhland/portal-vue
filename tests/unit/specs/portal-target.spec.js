@@ -37,7 +37,7 @@ function generateVNode() {
   return wrapper._vnode.children
 }
 
-describe('PortalTarget', function() {
+describe('PortalTarget', function () {
   beforeEach(() => {
     // reset the mocked Wormhole's store.
     Wormhole.transports = {}
@@ -68,7 +68,7 @@ describe('PortalTarget', function() {
     expect(wrapper.is('.vue-portal-target')).toBe(true)
   })
 
-  it('renders slot content when no other content is available', function() {
+  it('renders slot content when no other content is available', function () {
     const wrapper = createWrapper(
       {},
       {
@@ -81,7 +81,7 @@ describe('PortalTarget', function() {
     expect(wrapper.contains('p.default')).toBe(true)
   })
 
-  it('emits change event', function() {
+  it('emits change event', function () {
     const wrapper = createWrapper()
 
     const vNodes = Object.freeze([generateVNode()[0]])
@@ -98,7 +98,7 @@ describe('PortalTarget', function() {
     })
   })
 
-  it('emits change event when multiple is true', function() {
+  it('emits change event when multiple is true', function () {
     const wrapper = createWrapper({ multiple: true })
 
     const vNodes = Object.freeze([generateVNode()[0], generateVNode()[0]])

@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 let wormhole
 
-describe('Wormhole', function() {
+describe('Wormhole', function () {
   beforeEach(() => {
     wormhole = new Wormhole({})
     wormhole.transports = {}
@@ -30,7 +30,7 @@ describe('Wormhole', function() {
     })
   })
 
-  it('removes content on close()', function() {
+  it('removes content on close()', function () {
     const content = {
       from: 'test-portal',
       to: 'target',
@@ -138,7 +138,7 @@ describe('Wormhole', function() {
     expect(wormhole.transports).toEqual({ target: [] })
   })
 
-  it('hasTarget()', function() {
+  it('hasTarget()', function () {
     const check1 = wormhole.hasTarget('target')
     expect(check1).toBe(false)
 
@@ -151,7 +151,7 @@ describe('Wormhole', function() {
     expect(check3).toEqual(false)
   })
 
-  it('hasSource()', function() {
+  it('hasSource()', function () {
     const check1 = wormhole.hasSource('source')
     expect(check1).toBe(false)
 

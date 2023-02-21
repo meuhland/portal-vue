@@ -4,7 +4,9 @@ import { PropWithComponent } from '../types';
 export declare type withPortalTarget = VueConstructor<Vue & {
     portalTarget: any;
 }>;
-declare const _default: VueConstructor<{
+declare const _default: import("vue/types/vue").ExtendedVue<Vue<Record<string, any>, Record<string, any>, never, never, (event: string, ...args: any[]) => Vue<Record<string, any>, Record<string, any>, never, never, any>> & {
+    portalTarget: any;
+}, unknown, unknown, unknown, {
     append: string | boolean;
     bail: boolean;
     mountTo: string;
@@ -20,7 +22,5 @@ declare const _default: VueConstructor<{
     targetSlotProps: any;
     targetTag: string;
     transition: PropWithComponent;
-} & Vue & {
-    portalTarget: any;
-}>;
+}, {}, import("vue/types/v3-component-options").ComponentOptionsMixin, import("vue/types/v3-component-options").ComponentOptionsMixin>;
 export default _default;

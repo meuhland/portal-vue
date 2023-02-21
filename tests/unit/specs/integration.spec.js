@@ -12,7 +12,7 @@ async function waitTicks(n = 1) {
 }
 
 async function wait(ms) {
-  return Promise(resolve => {
+  return Promise((resolve) => {
     setTimeout(resolve, ms)
   })
 }
@@ -109,30 +109,20 @@ describe('Integration Tests', () => {
 
   it('Portal: Switch Target', async () => {
     const component = require('../resources/PortalSwitchTarget.vue').default
-    const { wrapper, portal: portals, target: targets } = mountScenario(
-      component,
-      {},
-      true
-    )
+    const {
+      wrapper,
+      portal: portals,
+      target: targets,
+    } = mountScenario(component, {}, true)
     await waitTicks(2)
 
-    expect(
-      targets
-        .at(0)
-        .find('p')
-        .text()
-    ).toBe('Content')
+    expect(targets.at(0).find('p').text()).toBe('Content')
     expect(targets.at(1).contains('p')).toBe(false)
 
     wrapper.vm.target = 'target2'
 
     await waitTicks(2)
-    expect(
-      targets
-        .at(1)
-        .find('p')
-        .text()
-    ).toBe('Content')
+    expect(targets.at(1).find('p').text()).toBe('Content')
     expect(targets.at(0).contains('p')).toBe(false)
   })
 

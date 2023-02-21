@@ -59,14 +59,18 @@ export default (Vue as withPortalTarget).extend({
     targetSlim: { type: Boolean },
     targetSlotProps: { type: Object, default: () => ({}) },
     targetTag: { type: String, default: 'div' },
-    transition: { type: [String, Object, Function] } as PropOptions<
-      PropWithComponent
-    >,
+    transition: {
+      type: [String, Object, Function],
+    } as PropOptions<PropWithComponent>,
   },
   created() {
     if (typeof document === 'undefined') return
     let el: HTMLElement | null = document.querySelector(this.mountTo)
-
+    if (!el) {
+      let iframe: any = document.querySelector('.PSPDFKit-Container > iframe');
+      el =
+        iframe.contentWindow.document.body.querySelector(this.mountTo);
+    }
     if (!el) {
       console.error(
         `[portal-vue]: Mount Point '${this.mountTo}' not found in document`
@@ -141,9 +145,9 @@ export default (Vue as withPortalTarget).extend({
     }
 
     // else, we render the scoped slot
-    let content: VNode = (this.$scopedSlots.manual({
+    let content: VNode = this.$scopedSlots.manual({
       to: this.to,
-    }) as unknown) as VNode
+    }) as unknown as VNode
 
     // if user used <template> for the scoped slot
     // content will be an array

@@ -13,9 +13,9 @@ export default Vue.extend({
     slim: { type: Boolean, default: false },
     slotProps: { type: Object, default: () => ({}) },
     tag: { type: String, default: 'div' },
-    transition: { type: [String, Object, Function] } as PropOptions<
-      PropWithComponent
-    >,
+    transition: {
+      type: [String, Object, Function],
+    } as PropOptions<PropWithComponent>,
   },
   data() {
     return {

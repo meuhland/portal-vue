@@ -20,13 +20,13 @@ function createWrapper(props = {}, options = {}) {
   })
 }
 
-describe('Portal', function() {
+describe('Portal', function () {
   beforeEach(() => {
     Wormhole.open.mockClear()
     Wormhole.close.mockClear()
   })
 
-  it('renders a div element with class `v-portal`', function() {
+  it('renders a div element with class `v-portal`', function () {
     // expect(wrapper.$refs.portal.$el.nodeName).to.equal('#comment')
     const wrapper = mount(Portal)
     expect(wrapper.is('div.v-portal')).toBe(true)
@@ -53,7 +53,7 @@ describe('Portal', function() {
     expect(wrapper.is('SPAN')).toBe(true)
   })
 
-  it('calls Wormhole.open with right content', function() {
+  it('calls Wormhole.open with right content', function () {
     createWrapper()
     expect(Wormhole.open).toHaveBeenCalledWith(
       expect.objectContaining({

@@ -1,7 +1,7 @@
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: true,
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     const path = require('path')
     const { main } = require('./package.json')
     config.module.rule('js').exclude.add(path.join(__dirname, './dist'))
